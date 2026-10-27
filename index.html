@@ -163,8 +163,8 @@ f.addEventListener('submit',async e=>{
     const r=await fetch(f.action,{method:'POST',headers:{Accept:'application/json'},body:new FormData(f)});
     const j=await r.json();
     if(j.success===true||j.success==='true'){f.reset();s.textContent='Bedankt! We nemen snel contact op.';}
-    else s.textContent='Er ging iets mis. Probeer het later opnieuw.';
-  }catch(_){s.textContent='Er ging iets mis. Probeer het later opnieuw.';}
+    else s.innerHTML='Het formulier werkt even niet. Mail ons gerust op <a href="mailto:rastalabradoodle@gmail.com">rastalabradoodle@gmail.com</a>.';
+  }catch(_){s.innerHTML='Het formulier werkt even niet. Mail ons gerust op <a href="mailto:rastalabradoodle@gmail.com">rastalabradoodle@gmail.com</a>.';}
 });
 </script>
 </body>

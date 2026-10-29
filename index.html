@@ -132,11 +132,11 @@
 <section id="contact" class="wrap">
   <h2>Contact</h2>
   <p>Geïnteresseerd? Stuur ons gerust een berichtje, dan antwoorden we zo snel mogelijk.</p>
-  <form id="form" class="card" action="https://formsubmit.co/ajax/rastalabradoodle@gmail.com" method="POST">
-    <input type="hidden" name="_subject" value="Nieuw bericht via rastadoodle.com">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
+  <form id="form" class="card" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="6affeaec-86d4-4690-acb9-e3274e6f1554">
+    <input type="hidden" name="subject" value="Nieuw bericht via rastadoodle.com">
+    <input type="hidden" name="from_name" value="RastaDoodle website">
+    <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
     <div class="row">
       <label>Voornaam<input name="voornaam" required autocomplete="given-name"></label>
       <label>Achternaam<input name="achternaam" required autocomplete="family-name"></label>
@@ -162,7 +162,7 @@ f.addEventListener('submit',async e=>{
   try{
     const r=await fetch(f.action,{method:'POST',headers:{Accept:'application/json'},body:new FormData(f)});
     const j=await r.json();
-    if(j.success===true||j.success==='true'){f.reset();s.textContent='Bedankt! We nemen snel contact op.';}
+    if(j.success){f.reset();s.textContent='Bedankt! We nemen snel contact op.';}
     else s.innerHTML='Het formulier werkt even niet. Mail ons gerust op <a href="mailto:rastalabradoodle@gmail.com">rastalabradoodle@gmail.com</a>.';
   }catch(_){s.innerHTML='Het formulier werkt even niet. Mail ons gerust op <a href="mailto:rastalabradoodle@gmail.com">rastalabradoodle@gmail.com</a>.';}
 });
